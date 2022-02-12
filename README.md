@@ -1,2 +1,2 @@
 # SandboxPPL
-Go PoC that sandboxes Defender by setting its token integrity to Untrusted.
+Go PoC that sandboxes Defender (or any other PPL) by setting its token integrity to Untrusted.
