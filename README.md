@@ -19,8 +19,8 @@ Not anymore
 <img width="532" alt="untrusted" src="https://user-images.githubusercontent.com/23586140/153692364-5be541f5-71d5-4341-81fc-49cd66feed4f.png">
 
 # Notes
-In the original research all the privileges are manually stripped off from the process. 
-It seems that this step is not necessary, since only by setting the integrity level to Untrusted, the same goal is achieved.
+In the original research all the privileges are manually stripped off from the process, besides changing the token integrity. 
+It seems that this first step is not necessary, since only by setting the integrity level to Untrusted the same goal is achieved.
 
 The program needs to run with SYSTEM privileges, otherwise the OpenProcessToken call will fail bceause the Owner of the target token is NT AUTHORITY\SYSTEM.
 
