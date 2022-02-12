@@ -1,7 +1,7 @@
 # SandboxPPL
 Golang PoC that sandboxes Defender (or other PPL) by setting its token integrity to Untrusted, effectively turning it useless.
 
-This is possible due to the fact that PROCESS_QUERY_LIMITED_INFORMATION is enough (in contrast to what MSDN documentation states) to get a handle to an access token of a protected process.
+This is possible due to the fact that using PROCESS_QUERY_LIMITED_INFORMATION to open a protected process is enough (in contrast to what MSDN documentation states) to get a handle to its access token.
 
 # PoC
 MsMpEng.exe (Windows Defender) runs as PPL
