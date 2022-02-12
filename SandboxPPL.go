@@ -32,7 +32,7 @@ const SE_GROUP_INTEGRITY = 0x00000020
 const UNTRUSTED = "S-1-16-0"
 
 func main() {
-	//Enable SeDebugPrivilege on the current process
+	//Making sure SeDebugPrivilege is enabled on the current process
 	funcs.EnablePrivilegeOnCurrentProcess("SeDebugPrivilege")
 	fmt.Println("[+] SeDebugPrivilege successfully enabled on current process")
 
