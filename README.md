@@ -22,7 +22,7 @@ Not anymore
 In the original research all the privileges are manually stripped off from the process, besides changing the token integrity. 
 It seems that this first step is not necessary, since only by setting the integrity level to Untrusted the same goal is achieved.
 
-The program needs to run with SYSTEM privileges, otherwise the OpenProcessToken call will fail bceause the Owner of the target token is NT AUTHORITY\SYSTEM.
+The program needs to run with SYSTEM privileges, otherwise the OpenProcessToken call will fail because the Owner of the target token is NT AUTHORITY\SYSTEM.
 
 # Reference 
 
